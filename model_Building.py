@@ -10,7 +10,7 @@ from sklearn.ensemble import RandomForestRegressor, VotingRegressor, StackingReg
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import xgboost as xgb
-
+import joblib
 # ─────────────────────────────────────────────────────────────
 # 1. LOAD & INSPECT
 # ─────────────────────────────────────────────────────────────
@@ -240,3 +240,7 @@ print("\n" + "="*55)
 print("FULL RESULTS SUMMARY (Validation Set)")
 print("="*55)
 print(results_df.round(4).to_string())
+
+import joblib
+joblib.dump(voting, r'data\voting_ensemble.pkl')
+print("Model saved to data/voting_ensemble.pkl")
